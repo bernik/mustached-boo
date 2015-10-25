@@ -1,8 +1,12 @@
 (ns mustached-boo.core
-  (:require [om.core :as om :include-macros true]
-            [mustached-boo.routes :as routes]))
+  (:require [mustached-boo.components :refer [likes-counter]]))
 
+(defonce app-state (atom {:likes 0}))
 
+(defn render! []
+  (.render js/React
+           (likes-counter app-state)
+           (.getElementById js/document "app")))
 
-;(assoc js/window.onpopstate [e]
-  ;(js/console.log "1"))
+(add-watch app-state :on-change (fn [_ _ _ _] (render!)))
+(render!)

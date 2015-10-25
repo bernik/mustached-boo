@@ -8,3 +8,7 @@
 /checkouts
 /.lein-deps-sum
 /.nrepl-port
+/.idea
+/resources/public/cljs/*
+/target
+/figwheel_server.log
