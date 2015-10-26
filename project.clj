@@ -2,9 +2,11 @@
   :description "it's just mustached boo"
   :dependencies [[org.clojure/clojure "1.7.0"]
                  [org.clojure/clojurescript "1.7.122"]
-                 [sablono "0.3.6"]]
-  :plugins [[lein-figwheel "0.4.1"]]
-  :clean-targets [:target-path "out" "resources/public/cljs"]
+                 [org.clojure/core.async "0.1.346.0-17112a-alpha"]
+                 [sablono "0.3.6"]
+                 [figwheel-sidecar "0.4.0" :scope "provided"]]
+  :plugins [[lein-cljsbuild "1.1.0"]]
+  :clean-targets ^{:protect false} [:target-path "out" "resources/public/cljs"]
   :cljsbuild {:builds [{:id "dev"
                         :source-paths ["src"]
                         :figwheel {:on-jsload "mustached-boo.core/render!"}
